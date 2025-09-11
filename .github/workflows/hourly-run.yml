@@ -1,0 +1,17 @@
+name: daily-run
+
+on:
+  schedule:
+    - cron: '30 0 * * *'   # example: 00:30 UTC daily -> that's 06:00 IST (UTC+5:30)
+  workflow_dispatch:
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install -r requirements.txt
+      - run: python main.py --daily    # or call a helper script: python daily_task.py

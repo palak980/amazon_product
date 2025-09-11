@@ -137,7 +137,7 @@ class AmazonTelegramDealsBot:
 
                     if listing.price and listing.saving_basis:
                         discount_amount = listing.saving_basis.amount - listing.price.amount
-                        discount_percentage = (discount_amount / listing.saving_basis.amount) * 1000
+                        discount_percentage = (discount_amount / listing.saving_basis.amount) * 100
                         product_details['discount'] = f"₹{discount_amount:.2f} ({discount_percentage:.1f}% off)"
 
                     if listing.availability:
